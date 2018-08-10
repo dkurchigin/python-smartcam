@@ -3,7 +3,6 @@
 
 import serial
 import serial.tools.list_ports
-import re
 
 string = "Smartcam ready!"
 smartcam_flag = False
