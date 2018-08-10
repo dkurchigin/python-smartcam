@@ -21,7 +21,7 @@ def connect_to_cam(port):
         dec_line = line.decode("ascii","ignore")
         print (dec_line)
         if dec_line.find(string):
-            print ('Smartcam ready to work!')
+            print ('Find Smartcam and ready to work!')
             smartcam_flag = True
         if smartcam_flag == True:
             ser.write(input().encode("ascii","ignore"))
@@ -30,4 +30,7 @@ def connect_to_cam(port):
 for element in comlist:
   connected.append(element.device)
   print (element.device)
-  connect_to_cam('/dev/ttyS0')
+  if element.device != '/dev/ttyS0':
+    connect_to_cam(element.device)
+  else:
+    print('Ignore /dev/ttyS0...')
